@@ -5,6 +5,6 @@ pip3 install pytube
 
 chmod +x youtube.py
 
-mv /usr/bin/youtube 
+cp ./youtube.py /usr/bin/
 
 youtube --help
