@@ -37,7 +37,15 @@ Get video:
 youtube -v <URL>
 ```
 
-# Convert MP4 to MP3 from Linux
+## Change the regex in cipher.py
+In function get_throttling_function_name change regex in variables function_patterns
+
+```
+        r'a\.[a-zA-Z]\s*&&\s*\([a-z]\s*=\s*a\.get\("n"\)\)\s*&&.*?\|\|\s*([a-z]+)',
+        r'\([a-z]\s*=\s*([a-zA-Z0-9$]+)(\[\d+\])\([a-z]\)',
+```
+
+## Convert MP4 to MP3 from Linux
 
 CBR:
 
