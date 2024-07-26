@@ -3,16 +3,20 @@
 from pytube import YouTube
 import os
 import argparse
+from moviepy.editor import *
 
 
 def get_audio(link):
     yt = YouTube(link)
     video = yt.streams.filter(only_audio=True).first()
     print("Downloading...")
-    out_file = video.download(output_path='/home/vlad/Music/')
+    out_file = video.download(output_path='/home/bednyakov/Музыка/')
     base, ext = os.path.splitext(out_file)
     new_file = base + '.mp3'
-    os.rename(out_file, new_file)
+    filetoconvert = AudioFileClip(out_file)
+    filetoconvert.write_audiofile(new_file)
+    print('NEW-FILE: ' + new_file)
+    #os.rename(out_file, new_file)  
     print(yt.title + " has been successfully downloaded (audio).")
 
 
@@ -20,7 +24,7 @@ def get_video(link):
     yt = YouTube(link)
     ys = yt.streams.get_highest_resolution()
     print("Downloading...")
-    ys.download(output_path='/home/vlad/Music/')
+    ys.download(output_path='/home/bednyakov/Музыка/')
     print(yt.title + " has been successfully downloaded (video).")
 
 
