@@ -36,3 +36,21 @@ Get video:
 ```
 youtube -v <URL>
 ```
+
+#Convert MP4 to MP3 from Linux
+
+CBR:
+
+```
+ffmpeg -i video.mp4 -vn \
+       -acodec libmp3lame -ac 2 -ab 160k -ar 48000 \
+        audio.mp3
+```
+
+VBR:
+
+```
+ffmpeg -i video.mp4 -vn \
+       -acodec libmp3lame -ac 2 -qscale:a 4 -ar 48000 \
+        audio.mp3
+```
